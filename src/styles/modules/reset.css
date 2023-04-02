@@ -1,0 +1,19 @@
+:where(*) {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:where(button, input[type="button"], input[type="submit"]) {
+  background: initial;
+  border: initial;
+}
+
+:where(img) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(ul) {
+  list-style: none;
+}
