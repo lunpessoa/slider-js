@@ -4,6 +4,7 @@
 
 .slider__content {
   display: flex;
+  /* transform: translate3d(-666px, 0, 0); */
 }
 
 .slider__item {

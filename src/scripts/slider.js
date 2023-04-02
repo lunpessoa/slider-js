@@ -12,22 +12,10 @@ export default class Slider {
 
   init() {
     if (!this.slide && !this.wrapper) return this;
+    this.slidersConfig();
     this.bindEvents();
     this.addSliderEvents();
     return this;
-  }
-
-  addSliderEvents() {
-    this.wrapper.addEventListener('mousedown', this.onStart);
-    this.wrapper.addEventListener('mouseup', this.onEnd);
-    this.wrapper.addEventListener('touchstart', this.onStart);
-    this.wrapper.addEventListener('touchend', this.onEnd);
-  }
-
-  bindEvents() {
-    this.onStart = this.onStart.bind(this);
-    this.onEnd = this.onEnd.bind(this);
-    this.onMove = this.onMove.bind(this);
   }
 
   moveSlide(distanceX) {
@@ -38,6 +26,21 @@ export default class Slider {
   updatePosition(clientX) {
     this.distances.movement = (this.distances.startX - clientX) * 1.5;
     return this.distances.endX - this.distances.movement;
+  }
+
+  // Event handlers
+
+  bindEvents() {
+    this.onStart = this.onStart.bind(this);
+    this.onEnd = this.onEnd.bind(this);
+    this.onMove = this.onMove.bind(this);
+  }
+
+  addSliderEvents() {
+    this.wrapper.addEventListener('mousedown', this.onStart);
+    this.wrapper.addEventListener('mouseup', this.onEnd);
+    this.wrapper.addEventListener('touchstart', this.onStart);
+    this.wrapper.addEventListener('touchend', this.onEnd);
   }
 
   onStart(event) {
@@ -64,5 +67,34 @@ export default class Slider {
     const movetype = event.type === 'mouseup' ? 'mousemove' : 'touchmove';
     this.wrapper.removeEventListener(movetype, this.onMove);
     this.distances.endX = this.distances.moved;
+  }
+
+  // Sliders Configuration
+  slidePosition(slide) {
+    const margin = (this.wrapper.offsetWidth - slide.offsetWidth) / 2;
+    return -(slide.offsetLeft - margin);
+  }
+
+  slidersConfig() {
+    this.items = [...this.slide.children].map((element) => ({
+      el: element,
+      position: this.slidePosition(element),
+    }));
+  }
+
+  slidesIndexNav(index) {
+    const lastIndex = this.items.length - 1;
+    this.index = {
+      prev: index ? index - 1 : undefined,
+      active: index,
+      next: index === lastIndex ? undefined : index + 1,
+    };
+  }
+
+  changeSlide(index) {
+    const activeSlide = this.items[index];
+    this.moveSlide(activeSlide.position);
+    this.slidesIndexNav(index);
+    this.distances.endX = activeSlide.position;
   }
 }

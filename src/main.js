@@ -13,3 +13,5 @@ document.documentElement.className += ' js';
 
 const slider = new Slider('[data-slider="content"]', '[data-slider="wrapper"]');
 slider.init();
+
+slider.changeSlide(5);
