@@ -28,6 +28,10 @@ export default class Slider {
     return this.distances.endX - this.distances.movement;
   }
 
+  transition(bool) {
+    this.slide.style.transition = bool ? 'transform 200ms ease-in-out' : '';
+  }
+
   // Event handlers
 
   bindEvents() {
@@ -54,6 +58,7 @@ export default class Slider {
       movetype = 'touchmove';
     }
     this.wrapper.addEventListener(movetype, this.onMove);
+    this.transition(false);
   }
 
   onMove(event) {
@@ -67,6 +72,20 @@ export default class Slider {
     const movetype = event.type === 'mouseup' ? 'mousemove' : 'touchmove';
     this.wrapper.removeEventListener(movetype, this.onMove);
     this.distances.endX = this.distances.moved;
+    this.transition(true);
+    this.changeOnEnd();
+  }
+
+  changeOnEnd() {
+    if (this.distances.movement > 120 && this.index.next !== undefined) {
+      this.activeNextSlide();
+      return;
+    }
+    if (this.distances.movement < -120 && this.index.prev !== undefined) {
+      this.activePrevSlide();
+      return;
+    }
+    this.changeSlide(this.index.active);
   }
 
   // Sliders Configuration
@@ -89,6 +108,16 @@ export default class Slider {
       active: index,
       next: index === lastIndex ? undefined : index + 1,
     };
+  }
+
+  activePrevSlide() {
+    if (this.index.prev === undefined) return;
+    this.changeSlide(this.index.prev);
+  }
+
+  activeNextSlide() {
+    if (this.index.next === undefined) return;
+    this.changeSlide(this.index.next);
   }
 
   changeSlide(index) {
