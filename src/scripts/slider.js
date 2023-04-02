@@ -18,6 +18,7 @@ export default class Slider {
     this.slidersConfig();
     this.bindEvents();
     this.addSliderEvents();
+    this.changeSlide(0);
     return this;
   }
 
@@ -85,9 +86,13 @@ export default class Slider {
 
   bindEvents() {
     this.onResize = debounce(this.onResize.bind(this), 100);
+
     this.onStart = this.onStart.bind(this);
     this.onEnd = this.onEnd.bind(this);
     this.onMove = this.onMove.bind(this);
+
+    this.activePrevSlide = this.activePrevSlide.bind(this);
+    this.activeNextSlide = this.activeNextSlide.bind(this);
   }
 
   addSliderEvents() {

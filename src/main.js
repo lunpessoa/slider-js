@@ -1,4 +1,4 @@
-import Slider from '@/scripts/slider';
+import SliderNav from '@/scripts/slider-nav';
 
 import '@/styles/index.css';
 
@@ -11,7 +11,6 @@ document.body.innerHTML = contentBody.innerHTML;
 
 document.documentElement.className += ' js';
 
-const slider = new Slider('[data-slider="content"]', '[data-slider="wrapper"]');
-slider.init();
-
-slider.changeSlide(5);
+const slide = new SliderNav('[data-slider="content"]', '[data-slider="wrapper"]');
+slide.init();
+slide.addArrow('.arrows__prev', '.arrows__next');
