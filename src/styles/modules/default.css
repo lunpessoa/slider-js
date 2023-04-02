@@ -6,9 +6,23 @@
   display: flex;
 }
 
+.slider__content:hover {
+  will-change: transform;
+}
+
 .slider__item {
   flex-shrink: 0;
   width: 80vw;
   max-width: 800px;
   margin-inline: 1.5rem;
+
+  opacity: 0.8;
+  scale: 0.8;
+
+  transition: all 200ms ease-in-out;
+}
+
+.slider__item--active {
+  opacity: 1;
+  scale: 1;
 }
