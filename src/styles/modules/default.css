@@ -1,0 +1,14 @@
+.slider {
+  overflow: hidden;
+}
+
+.slider__content {
+  display: flex;
+}
+
+.slider__item {
+  flex-shrink: 0;
+  width: 80vw;
+  max-width: 800px;
+  margin-inline: 1.5rem;
+}
