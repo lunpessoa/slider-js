@@ -17,19 +17,22 @@ export default class SliderNav extends Slider {
     const control = document.createElement('ul');
     control.dataset.control = 'slider';
     this.items.forEach((item, index) => {
-      control.innerHTML += `<li><a href="#slide-${index}">${index + 1}</a></li>`;
+      control.innerHTML += `<li class="control__item"><a href="#slide-${index}">${
+        index + 1
+      }</a></li>`;
     });
     this.wrapper.appendChild(control);
     return control;
   }
 
   activeControl() {
-    this.paginations.forEach((item) => item.classList.remove('active'));
-    this.paginations[this.index.active].classList.add('active');
+    this.paginations.forEach((item) => item.classList.remove(this.controlClass));
+    this.paginations[this.index.active].classList.add(this.controlClass);
   }
 
-  addControl(control) {
+  addControl(control, controlClass) {
     this.control = document.querySelector(control) || this.createControl();
+    this.controlClass = controlClass !== undefined ? controlClass : 'control__item--active';
     this.paginations = [...this.control.children];
     this.activeControl();
     this.paginations.forEach((item, index) => this.eventControl(item, index));

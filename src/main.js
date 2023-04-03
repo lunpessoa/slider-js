@@ -14,4 +14,4 @@ document.documentElement.className += ' js';
 const slide = new SliderNav('[data-slider="content"]', '[data-slider="wrapper"]');
 slide.init();
 slide.addArrow('.arrows__prev', '.arrows__next');
-slide.addControl();
+slide.addControl('.slider__control', 'c-control__item--active');
