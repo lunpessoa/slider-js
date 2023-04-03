@@ -11,6 +11,8 @@ export default class Slider {
       movement: 0,
       moved: 0,
     };
+
+    this.changeEvent = new Event('change');
   }
 
   init() {
@@ -80,6 +82,7 @@ export default class Slider {
     this.slidesIndexNav(index);
     this.distances.endX = activeSlide.position;
     this.changeActiveClass();
+    this.wrapper.dispatchEvent(this.changeEvent);
   }
 
   // Event handlers

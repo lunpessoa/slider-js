@@ -26,3 +26,28 @@
   opacity: 1;
   scale: 1;
 }
+
+[data-control='slider'] {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block: 1.5rem;
+}
+
+[data-control='slider'] li a {
+  display: block;
+  height: 0.875rem;
+  width: 0.875rem;
+  aspect-ratio: 1/1;
+
+  overflow: hidden;
+  background-color: #fb5;
+  border-radius: 100vw;
+
+  text-indent: -999px;
+}
+
+[data-control='slider'] li.active a,
+[data-control='slider'] li:hover a {
+  background-color: #e54;
+}
