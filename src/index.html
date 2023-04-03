@@ -1,262 +1,56 @@
 <div id="root">
-  <main class="grid-container">
-    <nav class="menu" data-scroll="smooth">
-      <button data-menu="button" aria-expanded="false" aria-controls="menu">Menu</button>
-      <ul data-menu="list" id="menu">
-        <li><a href="#animais">Animais</a></li>
-        <li data-dropdown>
-          <a href="sobre.html">Sobre</a>
-          <ul class="dropdown-menu">
-            <li><a href="empresa.html">Empresa</a></li>
-            <li><a href="equipe.html">Equipe</a></li>
-            <li><a href="socios.html">Sócios</a></li>
-            <li><a href="investidores.html">investidores</a></li>
-          </ul>
-        </li>
-        <li><a href="#faq">Faq</a></li>
-        <li><a href="#numbers">Números</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li><a data-modal="open" href="login.html">Login</a></li>
-      </ul>
-    </nav>
-    <section id="animais" class="grid-section animais" data-anime="scroll">
-      <h1 class="titulo">Animais Fantásticos</h1>
-      <ul class="animais-lista" data-tab="menu">
-        <li>
-          <img src="/src/assets/images/imagem1.jpg" alt="" />
-        </li>
-        <li>
-          <img src="/src/assets/images/imagem2.jpg" alt="" />
-        </li>
-        <li>
-          <img src="/src/assets/images/imagem3.jpg" alt="" />
-        </li>
-        <li>
-          <img src="/src/assets/images/imagem4.jpg" alt="" />
-        </li>
-        <li>
-          <img src="/src/assets/images/imagem5.jpg" alt="" />
-        </li>
-        <li>
-          <img src="/src/assets/images/imagem6.jpg" alt="" />
-        </li>
-      </ul>
-      <div class="animais-descricao" data-tab="content">
-        <section data-anime="show-right">
-          <h2>Raposa</h2>
-          <p>
-            As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São
-            vulpídeos de porte médio, caracterizados por um focinho comprido e uma cauda longa e
-            peluda.
-          </p>
-
-          <p>
-            Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas
-            verticais dos felídeos.
-          </p>
-
-          <p>
-            De cerca de 40 espécies reconhecidas como raposas, somente 12 pertencem ao gênero Vulpes
-            das "raposas verdadeiras", do qual a raposa vermelha é a mais comum.
-          </p>
-
-          <p>
-            Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas
-            verticais dos felídeos.
-          </p>
-        </section>
-
-        <section data-anime="show-down">
-          <h2>Esquilo</h2>
-          <p>
-            Os esquilos são pequenos mamíferos ágeis e fascinantes que fazem parte da família
-            Sciuridae. Eles são encontrados em todo o mundo, com exceção da Austrália e da
-            Antártica.
-          </p>
-
-          <p>
-            São principalmente animais solitários, diurnos e especializados em escalar e se
-            movimentar em superfícies verticais.
-          </p>
-
-          <p>
-            Os esquilos são conhecidos por armazenar alimentos para o inverno em suas bolsas nas
-            bochechas e muitas espécies são importantes para a dispersão de sementes em seus
-            ecossistemas.
-          </p>
-
-          <p>
-            Infelizmente, muitas espécies de esquilos estão ameaçadas devido à perda de habitat,
-            caça e mudanças climáticas, e é importante protegê-los.
-          </p>
-        </section>
-
-        <section data-anime="show-right">
-          <h2>Urso</h2>
-          <p>
-            Os ursos são animais solitários e imponentes, pertencentes à família Ursidae. Eles são
-            encontrados em todo o mundo, com exceção da Antártica e da Austrália.
-          </p>
-
-          <p>
-            Existem oito espécies de ursos, variando em tamanho, cor e habitat. Os ursos são
-            conhecidos por sua relação maternal e papel importante na regulação de populações de
-            presas.
-          </p>
-
-          <p>
-            Os ursos são animais onívoros, se alimentando de frutas, nozes, insetos, peixes e
-            animais maiores, como alces e veados. A dieta de um urso varia de acordo com a espécie e
-            a disponibilidade de alimentos em seu habitat.
-          </p>
-
-          <p>
-            Infelizmente, muitas espécies de ursos estão ameaçadas devido à caça, perda de habitat e
-            mudanças climáticas. A conservação desses animais é essencial para garantir sua
-            sobrevivência e a manutenção dos ecossistemas em que habitam.
-          </p>
-        </section>
-
-        <section data-anime="show-down">
-          <h2>Lobo</h2>
-          <p>
-            Os lobos são animais fascinantes e majestosos que fazem parte da família Canidae. Eles
-            são encontrados em todo o mundo, com exceção da Antártica e algumas ilhas remotas.
-          </p>
-
-          <p>
-            Os lobos são animais sociais, que vivem em grupos chamados de matilhas. As matilhas são
-            lideradas por um par dominante e incluem outros membros da família.
-          </p>
-
-          <p>
-            Os lobos são carnívoros e se alimentam de uma variedade de presas, incluindo alces,
-            veados, bisões e outros animais de grande porte. Eles são animais altamente adaptados,
-            com habilidades de caça incríveis.
-          </p>
-
-          <p>
-            Infelizmente, muitas espécies de lobos estão ameaçadas devido à caça e perda de habitat.
-            A conservação desses animais é importante para garantir sua sobrevivência e a manutenção
-            dos ecossistemas em que habitam.
-          </p>
-        </section>
-
-        <section data-anime="show-right">
-          <h2>Macaco</h2>
-          <p>
-            Os macacos são animais inteligentes e sociais que fazem parte da família dos primatas.
-            Eles são encontrados em todo o mundo, com exceção das regiões polares e da Austrália.
-          </p>
-
-          <p>
-            Existem mais de 260 espécies de macacos, variando em tamanho, cor e habitat. Alguns dos
-            macacos mais conhecidos incluem o macaco-prego, o babuíno e o macaco-aranha.
-          </p>
-
-          <p>
-            Os macacos são animais altamente adaptáveis, capazes de se alimentar de uma variedade de
-            alimentos, desde frutas e folhas até insetos e pequenos animais. Eles têm habilidades
-            incríveis de escalada e equilíbrio.
-          </p>
-
-          <p>
-            Infelizmente, muitas espécies de macacos estão ameaçadas devido à perda de habitat, caça
-            e comércio ilegal de animais selvagens. A conservação desses animais é importante para
-            garantir sua sobrevivência e a manutenção dos ecossistemas em que habitam.
-          </p>
-        </section>
-
-        <section data-anime="show-down">
-          <h2>Leão</h2>
-          <p>
-            O leão é um animal majestoso e icônico, conhecido por sua juba imponente e rugido
-            poderoso. Eles são encontrados principalmente na África subsaariana, mas também podem
-            ser encontrados em algumas partes da Ásia.
-          </p>
-
-          <p>
-            Os leões são animais sociais que vivem em grupos chamados de "coalizões" ou "orgulhos".
-            Os grupos são liderados por um macho dominante, que é responsável pela proteção do grupo
-            e pela reprodução.
-          </p>
-
-          <p>
-            Os leões são animais carnívoros e se alimentam de uma variedade de presas, incluindo
-            zebras, antílopes e búfalos. Eles têm habilidades incríveis de caça e trabalham em
-            equipe para derrubar presas maiores.
-          </p>
-
-          <p>
-            Infelizmente, muitas espécies de leões estão ameaçadas devido à caça ilegal, perda de
-            habitat e conflitos com humanos. A conservação desses animais é importante para garantir
-            sua sobrevivência e a manutenção dos ecossistemas em que habitam.
-          </p>
-        </section>
-      </div>
-    </section>
-
-    <section id="faq" class="grid-section faq" data-anime="scroll">
-      <h1 class="titulo">FAQ</h1>
-      <dl class="faq-lista" data-anime="accordion">
-        <dt>Qual a idade dos animais?</dt>
-        <dd>
-          As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos
-          de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda.
-        </dd>
-        <dt>Eles são fantásticos?</dt>
-        <dd>
-          Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas
-          verticais dos felídeos.
-        </dd>
-        <dt>Qual a diferença?</dt>
-        <dd>
-          As raposas são animais mamíferos e onívoros pertencentes à família Canidae. São vulpídeos
-          de porte médio, caracterizados por um focinho comprido e uma cauda longa e peluda.
-        </dd>
-        <dt>Como proteger?</dt>
-        <dd>
-          Também apresentam como particularidade suas pupilas ovais, semelhantes às pupilas
-          verticais dos felídeos.
-        </dd>
-      </dl>
-    </section>
-
-    <section id="numbers" class="grid-section numeros" data-anime="scroll">
-      <h1 class="titulo">Números</h1>
-      <div class="numeros-grid"></div>
-    </section>
-
-    <section id="contato" class="grid-section contato" data-anime="scroll">
-      <h1 class="titulo">Contato</h1>
-      <div class="mapa" data-tooltip aria-label="Endereço próximo ao estacionamento">
-        <img src="/src/assets/images/mapa.png" alt="" />
-      </div>
-      <ul class="dados">
-        <li>contato@luanp.com</li>
-        <li>+55 (11) 9 9999-9999</li>
-        <li>Rua do Conde, n°21</li>
-        <li>Rio de Janeiro - RJ</li>
-        <li>Doe <span class="btc-preco">0</span> bitcoin para nos ajudar</li>
-        <li data-week="[1,2,3,4,5]" data-hour="[8,18]">Seg à Sex das 8 às 18 horas</li>
-      </ul>
-    </section>
-
-    <footer class="copy">
-      <p>Todos os direitos reservados.</p>
-    </footer>
+  <main class="slider" data-slider="wrapper">
+    <ul class="slider__control c-control">
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto1.jpg" alt="" />
+      </li>
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto2.jpg" alt="" />
+      </li>
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto3.jpg" alt="" />
+      </li>
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto4.jpg" alt="" />
+      </li>
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto5.jpg" alt="" />
+      </li>
+      <li class="c-control__item">
+        <img class="c-control__image" src="assets/images/foto6.jpg" alt="" />
+      </li>
+    </ul>
+    <ul class="slider__content" data-slider="content">
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto1.jpg" alt="" />
+      </li>
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto2.jpg" alt="" />
+      </li>
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto3.jpg" alt="" />
+      </li>
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto4.jpg" alt="" />
+      </li>
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto5.jpg" alt="" />
+      </li>
+      <li class="slider__item">
+        <img class="slider__image" src="assets/images/foto6.jpg" alt="" />
+      </li>
+    </ul>
   </main>
-
-  <section class="modal-container" data-modal="container">
-    <div class="modal">
-      <button data-modal="close" class="modal__btn-close">X</button>
-      <form action="">
-        <label for="email">Email</label>
-        <input type="text" for="email" id="email" name="email" />
-        <label for="password">Senha</label>
-        <input type="password" for="password" id="password" name="password" />
-        <button type="submit">Entrar</button>
-      </form>
-    </div>
-  </section>
+  <div class="arrows">
+    <button class="arrows__button arrows__prev">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+        <polygon stroke-linejoin="round" points="0 0 0 14 11 7" transform="translate(1 1)" />
+      </svg>
+    </button>
+    <button class="arrows__button arrows__next">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
+        <polygon stroke-linejoin="round" points="0 0 0 14 11 7" transform="translate(1 1)" />
+      </svg>
+    </button>
+  </div>
 </div>
