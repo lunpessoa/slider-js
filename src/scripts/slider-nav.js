@@ -1,48 +1,107 @@
 import Slider from './slider';
 
 export default class SliderNav extends Slider {
-  addArrow(prev, next) {
-    this.prevElement = document.querySelector(prev);
-    this.nextElement = document.querySelector(next);
+  constructor(slider, wrapper, options) {
+    super(slider, wrapper, options);
+
+    this.config = {
+      indicators: false,
+      controlers: false,
+      ...options,
+      ...this.config,
+    };
+  }
+
+  init() {
+    super.init();
+    this.indicators = [];
+    if (this.config.controlers) {
+      this.addArrows(this.config.controlers?.prev, this.config.controlers?.next);
+    }
+    if (this.config.indicators) {
+      this.addIndicators(this.config.indicators);
+    }
+  }
+
+  // Add Arrows Configurations
+
+  addArrows(prev, next) {
+    if (
+      !(prev instanceof HTMLElement && next instanceof HTMLElement) &&
+      !(typeof prev === 'string' && typeof next === 'string')
+    ) {
+      console.error(`Invalid: prev and next elements. Elements must be HTMLElement or String type`);
+      return;
+    }
+    this.controlers = {
+      prev: prev instanceof HTMLElement ? prev : document.querySelector(prev),
+      next: next instanceof HTMLElement ? next : document.querySelector(next),
+    };
     this.transition(true);
     this.addArrowsEvent();
   }
 
   addArrowsEvent() {
-    this.prevElement.addEventListener('click', this.activePrevSlide);
-    this.nextElement.addEventListener('click', this.activeNextSlide);
+    this.controlers.prev.addEventListener('click', this.goPrev);
+    this.controlers.next.addEventListener('click', this.goNext);
   }
 
-  createControl() {
-    const control = document.createElement('ul');
-    control.dataset.control = 'slider';
+  // Add Indicators Configurations
+
+  addIndicators(indicators) {
+    if (Array.isArray(indicators) && indicators.length > 0) {
+      indicators.forEach((indicator) => this.putIndicator(indicator?.el, indicator?.activeClass));
+    } else if (indicators) {
+      this.putIndicator(indicators?.el, indicators?.activeClass);
+    }
+  }
+
+  putIndicator(indicators, activeClass = 'indicators__item--active') {
+    if (indicators && !(indicators instanceof HTMLElement) && typeof indicators !== 'string') {
+      console.error(`Invalid: indicators element. Element must be HTMLElement or String type`);
+      return;
+    }
+
+    const indicatorsObj = {
+      el:
+        indicators instanceof HTMLElement
+          ? indicators
+          : document.querySelector(indicators) || this.createDefaultIndicators(),
+      activeClass,
+    };
+
+    indicatorsObj.items = [...indicatorsObj.el.children];
+
+    this.indicators.push(indicatorsObj);
+    this.activeIndicator();
+
+    indicatorsObj.items.forEach((item, index) => this.eventIndicator(item, index));
+  }
+
+  createDefaultIndicators() {
+    const indicators = document.createElement('ul');
+    indicators.dataset.slider = 'indicators';
     this.items.forEach((item, index) => {
-      control.innerHTML += `<li class="control__item"><a href="#slide-${index}">${
+      indicators.innerHTML += `<li class="indicators__item"><a href="#slide-${index}">${
         index + 1
       }</a></li>`;
     });
-    this.wrapper.appendChild(control);
-    return control;
+    this.slider.insertAdjacentElement('afterend', indicators);
+    return indicators;
   }
 
-  activeControl() {
-    this.paginations.forEach((item) => item.classList.remove(this.controlClass));
-    this.paginations[this.index.active].classList.add(this.controlClass);
+  activeIndicator() {
+    this.indicators.forEach((indicator) => {
+      indicator.items.forEach((item) => item.classList.remove(indicator.activeClass));
+      indicator.items[this.index.active].classList.add(indicator.activeClass);
+    });
   }
 
-  addControl(control, controlClass) {
-    this.control = document.querySelector(control) || this.createControl();
-    this.controlClass = controlClass !== undefined ? controlClass : 'control__item--active';
-    this.paginations = [...this.control.children];
-    this.activeControl();
-    this.paginations.forEach((item, index) => this.eventControl(item, index));
-  }
-
-  eventControl(item, index) {
+  eventIndicator(item, index) {
     item.addEventListener('click', (e) => {
       e.preventDefault();
       this.changeSlide(index);
     });
-    this.wrapper.addEventListener('change', () => this.activeControl());
+    this.wrapper.addEventListener('change', () => this.activeIndicator());
   }
 }
