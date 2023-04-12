@@ -4,3 +4,6 @@
 @import 'modules/reset.css';
 
 @import 'modules/default.css';
+@import 'modules/slider.css';
+@import 'modules/controlers.css';
+@import 'modules/indicators.css';
