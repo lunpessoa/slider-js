@@ -11,7 +11,17 @@ document.body.innerHTML = contentBody.innerHTML;
 
 document.documentElement.className += ' js';
 
-const slide = new SliderNav('[data-slider="content"]', '[data-slider="wrapper"]');
-slide.init();
-slide.addArrow('.arrows__prev', '.arrows__next');
-slide.addControl('.slider__control', 'c-control__item--active');
+const slider = new SliderNav('[data-slider="content"]', '[data-slider="wrapper"]', {
+  controlers: {
+    prev: '.controler--prev',
+    next: '.controler--next',
+  },
+  indicators: { el: '.slider__control', activeClass: 'c-control__item--active' },
+  transition: {
+    duration: 500,
+    function: 'ease-in',
+  },
+});
+
+slider.addIndicators(true);
+slider.setConfig({ speed: 1.5 });

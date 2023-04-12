@@ -1,6 +1,6 @@
 :root {
-  --primary: #fb5;
-  --secondary: #e54;
+  --primary: #5f8d4e;
+  --secondary: #e7b10a;
 
   --secondary-dark: rgb(192, 69, 56);
 
@@ -11,9 +11,9 @@
   --white: #ffffff;
 
   --dark: #222222;
-  --light: #faf6ed;
+  --light: #dbe4c6;
 
   --dark-shadow: rgba(0, 0, 0, 0.5);
 
-  --default-font: "IBM Plex Mono", monospace;
+  --default-font: 'IBM Plex Mono', monospace;
 }

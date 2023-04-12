@@ -1,0 +1,24 @@
+[data-slider='indicators'] {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-block: 1.5rem;
+}
+
+[data-slider='indicators'] .indicators__item a {
+  display: block;
+  height: 0.875rem;
+  width: 0.875rem;
+  aspect-ratio: 1/1;
+
+  overflow: hidden;
+  background-color: var(--primary);
+  border-radius: 100vw;
+
+  text-indent: -999px;
+}
+
+[data-slider='indicators'] .indicators__item--active a,
+[data-slider='indicators'] .indicators__item:hover a {
+  background-color: var(--secondary);
+}

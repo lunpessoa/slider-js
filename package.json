@@ -5,8 +5,7 @@
   "main": "index.html",
   "scripts": {
     "dev": "webpack-dev-server --config webpack/webpack.config.dev.js",
-    "build": "webpack --config webpack/webpack.config.prod.js",
-    "build:serve": "webpack-dev-server --config webpack/webpack.config.prod.js"
+    "build": "webpack --config webpack/webpack.config.prod.js"
   },
   "author": "Luan Pessoa",
   "license": "ISC",

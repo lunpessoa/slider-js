@@ -1,0 +1,43 @@
+[data-slider='controlers'] {
+  display: flex;
+  justify-content: space-around;
+
+  margin-block: 1.5rem;
+}
+
+[data-slider='controlers'] .controler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+
+  height: 50px;
+  aspect-ratio: 1/1;
+
+  font-weight: bold;
+  color: var(--dark);
+
+  background: var(--primary);
+  border-radius: 0.25rem;
+
+  cursor: pointer;
+}
+
+[data-slider='controlers'] .controler svg {
+  fill: var(--dark);
+  stroke: var(--dark);
+}
+
+[data-slider='controlers'] .controler:hover {
+  background: var(--secondary);
+  color: var(--white);
+}
+
+[data-slider='controlers'] .controler:hover svg {
+  fill: var(--white);
+  stroke: var(--white);
+}
+
+[data-slider='controlers'] .controler--prev svg {
+  rotate: 180deg;
+}
